@@ -1,5 +1,5 @@
 ﻿
-var text = File.ReadAllText(@"E:\lpnu\ТЗІ\lab3\SZ_156");
+var text = File.ReadAllText(@"E:\lpnu\ТЗІ\lab3\decoded.txt");
 
 //Get unique symbols from text
 var alphabet = text.ToCharArray().Where(x => x is not ('\r' or '\n')).Distinct().ToList();
@@ -9,7 +9,7 @@ var symbolFrequencyByFrequency = symbolFrequencyByAlphabet
     .OrderByDescending(x => x.Value)
     .ToDictionary(x => x.Key, y => y.Value);
 
-Print(symbolFrequencyByAlphabet, "alphabet");
+//Print(symbolFrequencyByAlphabet, "alphabet");
 Print(symbolFrequencyByFrequency, "frequency");
 GetBigrams();
 GetThreegrams();

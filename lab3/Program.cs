@@ -36,3 +36,8 @@ Dictionary<char, char> GetAlphabet(string path)
 
     return alphabet;
 }
+
+var file = File.Create(@"E:\lpnu\ТЗІ\lab3\decoded.txt");
+file.Close();
+
+File.WriteAllText(@"E:\lpnu\ТЗІ\lab3\decoded.txt", decodedText.ToString());
