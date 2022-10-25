@@ -9,15 +9,10 @@ var inputText = File.ReadAllText(inputFile);
 
 var outputText = VigenereAlgorithm(inputText, key);
 
-if (File.Exists(outputText)) File.Delete(outputText);
-
-var file = File.Create(outputFile);
-file.Close();
-
-File.AppendAllText(outputFile, outputText);
+File.WriteAllText(outputFile, outputText);
 
 
-//пароля генерація повторюваного пароля
+//генерація повторюваного пароля
 string GetRepeatableKey(string password, int inputTextLength)
 {
     var resultKey = password;
