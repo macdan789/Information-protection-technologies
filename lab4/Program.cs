@@ -51,14 +51,13 @@ string VigenereAlgorithm(string inputText, string password, bool encrypting = tr
         {
             //якщо буква найдена, тоді шифруємо/дешифруємо її
             //шукаємо відповідний індекс символу в алфавіті за формулами:
-            
+
             //Encrypt(mn) = (Q + mn + kn) % Q.
-            //Decrypt(cn) = (Q + cn - kn) % Q.
+            //Decrypt(mn) = (Q + mn - kn) % Q.
             //Q - кількість символів в алфавіті
             //kn - індекс символу ключа
-            //mn - індекс символу тексту для шифрування
-            //cn - індекс символу тексту для дешифрування
-            
+            //mn - індекс символу тексту для шифрування/дешифрування
+
             var resultIndex = (lettersCount + letterIndex + ((encrypting ? 1 : -1) * keyIndex)) % lettersCount;
             resultText += letters[resultIndex];
         }
