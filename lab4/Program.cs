@@ -5,11 +5,13 @@ var key = "MARKOBOHDAN";
 //літери англійського алфавіту
 const string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-var inputText = File.ReadAllText(inputFile);
+SymbolNumber();
 
-var outputText = VigenereAlgorithm(inputText, key);
+//var inputText = File.ReadAllText(inputFile);
 
-File.WriteAllText(outputFile, outputText);
+//var outputText = VigenereAlgorithm(inputText, key);
+
+//File.WriteAllText(outputFile, outputText);
 
 
 //генерація повторюваного пароля
@@ -26,7 +28,6 @@ string GetRepeatableKey(string password, int inputTextLength)
     //(кількість символів ключа = кількість символів тексту для шифрування)
     return resultKey[..inputTextLength];
 }
-
 
 string VigenereAlgorithm(string inputText, string password, bool encrypting = true)
 {
@@ -64,4 +65,12 @@ string VigenereAlgorithm(string inputText, string password, bool encrypting = tr
     }
 
     return resultText;
+}
+
+void SymbolNumber()
+{
+    for(var i = 0; i < letters.Length; ++i)
+    {
+        Console.WriteLine($"{letters[i]} - {i}");
+    }
 }

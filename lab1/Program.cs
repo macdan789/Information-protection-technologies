@@ -1,5 +1,5 @@
 ﻿
-var text = File.ReadAllText(@"E:\lpnu\ТЗІ\lab4\output.txt");
+var text = File.ReadAllText(@"E:\lpnu\ТЗІ\lab7\input.txt");
 
 //Get unique symbols from text
 var alphabet = text.ToCharArray().Where(x => x is not ('\r' or '\n')).Distinct().ToList();
@@ -9,11 +9,11 @@ var symbolFrequencyByFrequency = symbolFrequencyByAlphabet
     .OrderByDescending(x => x.Value)
     .ToDictionary(x => x.Key, y => y.Value);
 
-//Print(symbolFrequencyByAlphabet, "alphabet");
+Print(symbolFrequencyByAlphabet, "alphabet");
 //Print(symbolFrequencyByFrequency, "frequency");
-GetBigrams();
-GetThreegrams();
-GetFourgrams();
+//GetBigrams();
+//GetThreegrams();
+//GetFourgrams();
 
 
 Dictionary<char, int> GetSymbolFrequency()
@@ -34,7 +34,7 @@ void Print(Dictionary<char, int> keyValues, string desc)
     Console.WriteLine($"Unique symbols by {desc}");
     foreach (var item in keyValues)
     {
-        Console.WriteLine($"[{item.Key}]\t{item.Value}");
+        Console.WriteLine($"[{item.Key}]|{item.Value}");
     }
     Console.WriteLine();
 }
@@ -65,7 +65,7 @@ void GetBigrams()
     Console.WriteLine("First 15 Bigrams");
     foreach (var letter in result.Where(a => a.Value is not 0).OrderByDescending(b => b.Value).Take(15))
     {
-        Console.WriteLine($"[{letter.Key}]\t{letter.Value}");
+        Console.WriteLine($"[{letter.Key}]|{letter.Value}");
     }
     Console.WriteLine();
 }
@@ -97,7 +97,7 @@ void GetThreegrams()
     Console.WriteLine("First 15 Threegrams");
     foreach (var letter in result.Where(a => a.Value is not 0).OrderByDescending(b => b.Value).Take(15))
     {
-        Console.WriteLine($"[{letter.Key}]\t{letter.Value}");
+        Console.WriteLine($"[{letter.Key}]|{letter.Value}");
     }
     Console.WriteLine();
 }
@@ -130,7 +130,7 @@ void GetFourgrams()
     Console.WriteLine("First 15 Fourgrams");
     foreach (var letter in result.Where(a => a.Value is not 0).OrderByDescending(b => b.Value).Take(15))
     {
-        Console.WriteLine($"[{letter.Key}]\t{letter.Value}");
+        Console.WriteLine($"[{letter.Key}]|{letter.Value}");
     }
     Console.WriteLine();
 }
